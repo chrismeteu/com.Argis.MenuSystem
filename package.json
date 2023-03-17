@@ -1,0 +1,43 @@
+{
+    "name": "com.argis.library",
+    "version": "1.1.0",
+    "displayName": "Argis Library",
+    "description": "*NOTE* You must already have the dependencies before adding this package in order for it to compile properly.\n\nThis is a library which includes all the necessary namespaces required to connect to the Argis Rest API.\n\nYou will need BestHTTP/2 which can be purchased from the asset store.",
+    "unity": "2019.3",
+    "documentationUrl": "https://argis.com/",
+    "changelogUrl": "https://argis.com/changelog.html",
+    "licensesUrl": "https://argis.com/licensing.html",
+    "keywords": [
+        "argis",
+        "gis",
+        "geometry",
+        "mesh"
+    ],
+    "author": {
+        "name": "Argis",
+        "email": "chris.anderson@argis.com",
+        "url": "https://www.argis.com"
+    },
+    "type": "library",
+    "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.0",
+        "com.unity.textmeshpro": "3.0.6"
+    },
+    "samples": [
+        {
+            "displayName": "API Calls",
+            "description": "Sample on how to Log into  and use the Argis API",
+            "path": "Samples~/API Calls"
+        },
+        {
+            "displayName": "Serialized Dictionaries",
+            "description": "Sample on how to create a serialized dictionary",
+            "path": "Samples~/SerializableDictionaries"
+        },
+        {
+            "displayName": "Threading",
+            "description": "Sample on how to add threading",
+            "path": "Samples~/Threading"
+        }
+    ]
+}
