@@ -1,9 +1,9 @@
 {
-    "name": "com.Argis.MenuSystem",
+    "name": "com.argis.menuSystem",
     "version": "0.0.1",
     "displayName": "Argis Menu System",
     "description": "Basic menu system for controlling canvas UI menues",
-    "unity": "2019.3",
+    "unity": "2020.3",
     "documentationUrl": "https://argis.com/",
     "changelogUrl": "https://argis.com/changelog.html",
     "licensesUrl": "https://argis.com/licensing.html",
@@ -17,8 +17,6 @@
         "url": "https://www.argis.com"
     },
     "type": "library",
-    "dependencies": {
-    },
     "samples": [
         {
             "displayName": "Splash Screen",
