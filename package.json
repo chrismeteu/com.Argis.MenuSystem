@@ -1,17 +1,15 @@
 {
-    "name": "com.argis.library",
-    "version": "1.1.0",
-    "displayName": "Argis Library",
-    "description": "*NOTE* You must already have the dependencies before adding this package in order for it to compile properly.\n\nThis is a library which includes all the necessary namespaces required to connect to the Argis Rest API.\n\nYou will need BestHTTP/2 which can be purchased from the asset store.",
+    "name": "com.Argis.MenuSystem",
+    "version": "0.0.1",
+    "displayName": "Argis Menu System",
+    "description": "Basic menu system for controlling canvas UI menues",
     "unity": "2019.3",
     "documentationUrl": "https://argis.com/",
     "changelogUrl": "https://argis.com/changelog.html",
     "licensesUrl": "https://argis.com/licensing.html",
     "keywords": [
         "argis",
-        "gis",
-        "geometry",
-        "mesh"
+        "menu"
     ],
     "author": {
         "name": "Argis",
@@ -20,24 +18,17 @@
     },
     "type": "library",
     "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "2.0.0",
-        "com.unity.textmeshpro": "3.0.6"
     },
     "samples": [
         {
-            "displayName": "API Calls",
-            "description": "Sample on how to Log into  and use the Argis API",
-            "path": "Samples~/API Calls"
+            "displayName": "Splash Screen",
+            "description": "Sample on how to create a splash screen",
+            "path": "Samples~/SplashScreen"
         },
         {
-            "displayName": "Serialized Dictionaries",
+            "displayName": "Sample Menu System Usage",
             "description": "Sample on how to create a serialized dictionary",
-            "path": "Samples~/SerializableDictionaries"
-        },
-        {
-            "displayName": "Threading",
-            "description": "Sample on how to add threading",
-            "path": "Samples~/Threading"
+            "path": "Samples~/SampleMenu"
         }
     ]
 }
