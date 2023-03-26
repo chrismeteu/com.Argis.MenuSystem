@@ -81,7 +81,7 @@ namespace Argis.MenuSystem.Runtime
         [Tooltip("Disable menus that are under this one in the stack")]
         public bool DisableMenusUnderneath = true;
 
-        [Header("Audiio")]
+        [Header("Audio")]
 
         [SerializeField]
         [Tooltip("Audio source (one can be found on the template prefab)")]

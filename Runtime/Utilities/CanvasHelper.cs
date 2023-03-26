@@ -4,6 +4,12 @@ using UnityEngine.Events;
 
 namespace Argis.MenuSystem.Runtime.Utilities
 {
+    /// <summary>
+    /// 1. Place this component to a GameObject containing a UI Canvsas.
+    /// 2. Create child GameObject that must be named "SafeArea"
+    ///    a. All canvas elements that you wish to be affected by the SafeArea
+    ///       needs to be placed as children of the SafeArea
+    /// </summary>
     //[ExecuteAlways]
     [RequireComponent(typeof(Canvas))]
     public class CanvasHelper : MonoBehaviour
@@ -18,8 +24,7 @@ namespace Argis.MenuSystem.Runtime.Utilities
         private static Rect lastSafeArea = Rect.zero;
 
         private Canvas canvas;
-        private RectTransform rectTransform;
-        private RectTransform safeAreaTransform;
+        private RectTransform _safeAreaTransform;
 
         void Awake()
         {
@@ -27,9 +32,8 @@ namespace Argis.MenuSystem.Runtime.Utilities
                 helpers.Add(this);
 
             canvas = GetComponent<Canvas>();
-            rectTransform = GetComponent<RectTransform>();
 
-            safeAreaTransform = transform.Find("SafeArea") as RectTransform;
+            _safeAreaTransform = transform.Find("SafeArea") as RectTransform;
 
             if (!screenChangeVarsInitialized)
             {
@@ -62,7 +66,7 @@ namespace Argis.MenuSystem.Runtime.Utilities
 
         void ApplySafeArea()
         {
-            if (safeAreaTransform == null)
+            if (_safeAreaTransform == null)
                 return;
 
             var safeArea = Screen.safeArea;
@@ -74,8 +78,8 @@ namespace Argis.MenuSystem.Runtime.Utilities
             anchorMax.x /= canvas.pixelRect.width;
             anchorMax.y /= canvas.pixelRect.height;
 
-            safeAreaTransform.anchorMin = anchorMin;
-            safeAreaTransform.anchorMax = anchorMax;
+            _safeAreaTransform.anchorMin = anchorMin;
+            _safeAreaTransform.anchorMax = anchorMax;
         }
 
         void OnDestroy()
@@ -115,6 +119,7 @@ namespace Argis.MenuSystem.Runtime.Utilities
             {
                 helpers[i].ApplySafeArea();
             }
+            Canvas.ForceUpdateCanvases();
         }
     }
 }

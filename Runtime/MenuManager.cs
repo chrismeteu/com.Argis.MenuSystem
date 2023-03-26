@@ -180,16 +180,16 @@ namespace Argis.MenuSystem.Runtime
         }
 
         // TODO:// Refactor to use new input system
-        //#if ANDROID || UNITY_EDITOR
-        //        // Does not use new input system
-        //        private void Update()
-        //        {
-        //            // On Android the back button is sent as Esc
-        //            if (Input.GetKeyDown(KeyCode.Escape) && _menuStack.Count > 0)
-        //            {
-        //                _menuStack.Peek().OnBackPressed();
-        //            }
-        //        }
-        //#endif
+#if ANDROID || UNITY_EDITOR
+        // Does not use new input system
+        private void Update()
+        {
+            // On Android the back button is sent as Esc
+            if (Input.GetKeyDown(KeyCode.Escape) && _menuStack.Count > 0)
+            {
+                _menuStack.Peek().OnBackPressed();
+            }
+        }
+#endif
     }
 }
