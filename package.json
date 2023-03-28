@@ -16,17 +16,5 @@
         "email": "chris.anderson@argis.com",
         "url": "https://www.argis.com"
     },
-    "type": "library",
-    "samples": [
-        {
-            "displayName": "Splash Screen",
-            "description": "Sample on how to create a splash screen",
-            "path": "Samples~/SplashScreen"
-        },
-        {
-            "displayName": "Sample Menu System Usage",
-            "description": "Sample on how to create a serialized dictionary",
-            "path": "Samples~/SampleMenu"
-        }
-    ]
+    "type": "library"
 }
