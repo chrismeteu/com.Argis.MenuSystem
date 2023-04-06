@@ -90,7 +90,7 @@ namespace Argis.MenuSystem.Runtime
         }
 
         // open a Menu and add to the Menu stack
-        public void OpenMenu(Menu menuInstance)
+        internal void OpenMenu(Menu menuInstance)
         {
             if (menuInstance == null)
             {
