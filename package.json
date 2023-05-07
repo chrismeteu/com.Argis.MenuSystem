@@ -1,6 +1,6 @@
 {
     "name": "com.argis.menusystem",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "displayName": "Argis Menu System",
     "description": "Basic menu system for controlling canvas UI menues",
     "author": {

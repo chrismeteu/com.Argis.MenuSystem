@@ -12,7 +12,7 @@ namespace Argis.MenuSystem.Runtime
         /// <summary>
         /// Reference to public and private instances
         /// </summary>
-        private static T _instance;
+        protected static T _instance;
         public static T Instance { get { return _instance; } }
 
         /// <summary>
