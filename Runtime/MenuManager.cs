@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Reflection;
-using UnityEditor;
 
 namespace Argis.MenuSystem.Runtime
 {
@@ -10,7 +7,7 @@ namespace Argis.MenuSystem.Runtime
     /// Class for managing the Menus
     /// </summary>
     /// <see cref="https://github.com/UnityGameAcademy/LevelManagementUnity/blob/master/Assets/LevelManagement/Scripts/MenuManager.cs"/>
-    public sealed class MenuManager : MonoBehaviour
+    public class MenuManager : MonoBehaviour
     {
         // TODO:// Refactor to use AssetReferences instead of GameObjects for better memory management
         [SerializeField]
