@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Argis.MenuSystem.Runtime
@@ -9,10 +11,24 @@ namespace Argis.MenuSystem.Runtime
     /// <see cref="https://github.com/UnityGameAcademy/LevelManagementUnity/blob/master/Assets/LevelManagement/Scripts/MenuManager.cs"/>
     public class MenuManager : MonoBehaviour
     {
-        // TODO:// Refactor to use AssetReferences instead of GameObjects for better memory management
+        //// TODO:// Refactor to use AssetReferences instead of GameObjects for better memory management
+        //[SerializeField]
+        //[Tooltip("Add all menus to be used at runtime.")]
+        //private Menu[] _menus;
+
+        [Header("OS Menu Lists")]
         [SerializeField]
-        [Tooltip("Add all menus to be used at runtime.")]
+        private MenuList _menuListMobile;
+        [SerializeField]
+        private MenuList _menuListTablet;
+        [SerializeField]
+        private MenuList _menuListVR;
+        [SerializeField]
+        private MenuList _menuListDesktop;
+
         private Menu[] _menus;
+
+        [Header("Menu Manager")]
 
         [SerializeField]
         [Tooltip("Transform for organizing your Menus, defaults to Menus object")]
@@ -35,6 +51,7 @@ namespace Argis.MenuSystem.Runtime
             if (_instance != null)
             {
                 Destroy(gameObject);
+                return;
             }
             else
             {
@@ -42,9 +59,18 @@ namespace Argis.MenuSystem.Runtime
                 _instance = this;
 
                 // initialize Menus and make this GameObject persistent
-                InitializeMenus();
+#if UNITY_IOS || UNITY_ANDROID
+                InitializeMenus(_menuListMobile);
+#elif UNITY_LUMIN
+                InitializeMenus(_menuListVR);
+#elif UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN
+                InitializeMenus(_menuListDesktop);
+#else
+                InitializeMenus(_menuListMobile);
+#endif
                 DontDestroyOnLoad(gameObject);
             }
+
         }
 
         // remove Singleton instance if this object is destroyed
@@ -56,10 +82,28 @@ namespace Argis.MenuSystem.Runtime
             }
         }
 
-        // create the Menus at the start of the game
-        private void InitializeMenus()
-        {
 
+
+        public /*async Task<bool>*/ bool UpdateMenuList(MenuList newMenuList)
+        {
+            try
+            {
+                RemoveAllMenus();
+                InitializeMenus(newMenuList);
+            }
+            catch(Exception ex)
+            {
+                Debug.LogError(ex);
+                return false;
+            }
+
+            return true;
+        }
+
+        // create the Menus at the start of the game
+        private void InitializeMenus(MenuList menuList)
+        {
+            _menus = menuList.Menus;
             // generate a default parent object if none specified
             if (_menuParent == null)
             {
@@ -152,6 +196,15 @@ namespace Argis.MenuSystem.Runtime
 
                 if (menu.DisableMenusUnderneath)
                     break;
+            }
+        }
+
+        private void RemoveAllMenus()
+        {
+            while (_menuStack.Count > 0)
+            {
+                var instance = _menuStack.Pop();
+                Destroy(instance.gameObject);
             }
         }
 

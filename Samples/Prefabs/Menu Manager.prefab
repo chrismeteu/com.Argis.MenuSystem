@@ -44,5 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84a2e907ea8b482a80f541a04bcc708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menus: []
+  _menuListMobile: {fileID: 11400000, guid: c2636282f8b284354b3479f6f17e0520, type: 2}
+  _menuListTablet: {fileID: 11400000, guid: c2636282f8b284354b3479f6f17e0520, type: 2}
+  _menuListVR: {fileID: 11400000, guid: c2636282f8b284354b3479f6f17e0520, type: 2}
+  _menuListDesktop: {fileID: 11400000, guid: c2636282f8b284354b3479f6f17e0520, type: 2}
   _menuParent: {fileID: 5394796564993297558}
+  _openMainMenuAtStartUp: 1
